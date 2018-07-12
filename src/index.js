@@ -4,13 +4,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-Object.values(document.getElementsByClassName('root')).forEach(element => {
-  console.log(element);
-  // props.childrenがobjectで1つだけくる
-  console.log(<App />, <div><h1>hello world</h1></div>);
-  // props.childrenがobject[]で2つくる
-  console.log(<App />, <div><h1>hello world</h1><h2>hello again</h2></div>);
-  console.log(typeof <App />);
-  ReactDOM.render(<App />, element);
-});
+setInterval(() => {
+  const target = document.createElement('div');
+  ReactDOM.render(<App />, target);
+  document.body.appendChild(target);
+}, 1000);
 registerServiceWorker();
